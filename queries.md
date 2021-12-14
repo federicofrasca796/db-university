@@ -22,4 +22,5 @@
     - **SELECT COUNT(`id`) AS 'tot_departments' FROM `departments`;**
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
-    - 
+    - **SELECT COUNT(`phone`) AS 'teachers_with_phone' FROM `teachers` WHERE `phone` IS NOT NULL;**
+    
