@@ -3,16 +3,16 @@
 ## Query con Group by
 
 1. Contare quanti iscritti ci sono stati ogni anno
-    - **here**
+    - **SELECT COUNT(id) AS num_of_students, YEAR enrolment_date) FROM students GROUP BY YEAR enrolment_date)**
 
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
-    - **here**
+    - **SELECT COUNT(id) AS teachers_num, office_address FROM teachers GROUP BY office_address**
 
 3. Calcolare la media dei voti di ogni appello d'esame
-    - **here**
+    - **SELECT exam_id, AVG(vote) FROM exam_student GROUP BY exam_id**
 
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
-    - **here**
+    - **SELECT COUNT(id) AS degree_id, department_id FROM degrees GROUP BY department_id**
 
 ## Query con Join
 
@@ -32,7 +32,7 @@
     - **SELECT `degrees`.name, `courses`.name, `courses`.name, `courses`.period, `teachers`.name, `teachers`.surname FROM `degrees` JOIN `courses` ON courses.degree_id = degrees.id JOIN `course_teacher` ON courses.id = course_teacher.course_id OIN `teachers` ON teachers.id = course_teacher.teacher_id**
 
 10. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
-    - **here**
+    - **SELECT DISTINCT teachers.*, departments.* FROM departments JOIN degrees ON degrees.department_id = departments.id JOIN courses ON courses.degree_id = degrees.id JOIN course_teacher ON course_teacher.course_id = courses.id JOIN teachers ON course_teacher.teacher_id = teachers.id WHERE departments.name = "Dipartimento di Matematica"**
 
 11. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
     - **here**
