@@ -35,4 +35,4 @@
     - **SELECT DISTINCT teachers.*, departments.* FROM departments JOIN degrees ON degrees.department_id = departments.id JOIN courses ON courses.degree_id = degrees.id JOIN course_teacher ON course_teacher.course_id = courses.id JOIN teachers ON course_teacher.teacher_id = teachers.id WHERE departments.name = "Dipartimento di Matematica"**
 
 11. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
-    - **here**
+    - **SELECT COUNT(exams.id) AS n_tries, students.name, students.surname, courses.name AS 'course_name' FROM exam_student JOIN students ON students.id = exam_student.student_id JOIN exams ON exams.id = exam_student.exam_id JOIN courses ON courses.id = exams.course_id GROUP BY  students.id, courses.id**
